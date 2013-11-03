@@ -4,7 +4,7 @@
 -- 
 -- Create Date:    00:36:48 11/03/2013 
 -- Design Name: 
--- Module Name:    Modulador_ASF - Behavioral 
+-- Module Name:    Modulador_ASK - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,14 +29,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity modulador_ASF is
+entity modulador_ASK is
     Port ( portadora : in  STD_LOGIC;
            moduladora : in  STD_LOGIC;
            reset : in  STD_LOGIC;
            output : out  STD_LOGIC);
-end modulador_ASF;
+end modulador_ASK;
 
-architecture Behavioral of modulador_ASF is
+architecture Behavioral of modulador_ASK is
 
 begin
 

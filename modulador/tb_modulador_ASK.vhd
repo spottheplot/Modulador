@@ -2,15 +2,15 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   00:41:18 11/03/2013
+-- Create Date:   00:50:26 11/03/2013
 -- Design Name:   
--- Module Name:   C:/Users/Juan/Desktop/Jota/Jota/tb_modulador_ASF.vhd
+-- Module Name:   C:/Users/Juan/Desktop/Jota/Jota/tb_moduladora_ASK.vhd
 -- Project Name:  Jota
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: Modulador_ASF
+-- VHDL Test Bench Created by ISE for module: Modulador_ASK
 -- 
 -- Dependencies:
 -- 
@@ -32,14 +32,14 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY tb_modulador_ASF IS
-END tb_modulador_ASF;
+ENTITY tb_modulador_ASK IS
+END tb_modulador_ASK;
  
-ARCHITECTURE behavior OF tb_modulador_ASF IS 
+ARCHITECTURE behavior OF tb_modulador_ASK IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT Modulador_ASF
+    COMPONENT modulador_ASK
     PORT(
          portadora : IN  std_logic;
          moduladora : IN  std_logic;
@@ -59,12 +59,12 @@ ARCHITECTURE behavior OF tb_modulador_ASF IS
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
-   constant <clock>_period : time := 10 ns;
+   constant portadora_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: Modulador_ASF PORT MAP (
+   uut: modulador_ASK PORT MAP (
           portadora => portadora,
           moduladora => moduladora,
           reset => reset,
@@ -72,25 +72,34 @@ BEGIN
         );
 
    -- Clock process definitions
-   <clock>_process :process
+   portadora_process :process
    begin
-		<clock> <= '0';
-		wait for <clock>_period/2;
-		<clock> <= '1';
-		wait for <clock>_period/2;
+		portadora <= '0';
+		wait for portadora_period/2;
+		portadora <= '1';
+		wait for portadora_period/2;
    end process;
  
 
    -- Stimulus process
    stim_proc: process
    begin		
+		reset <= '1';
       -- hold reset state for 100 ns.
       wait for 100 ns;	
 
-      wait for <clock>_period*10;
+      wait for portadora_period*10;
 
       -- insert stimulus here 
-
+		moduladora <= '1';
+		wait for 100 ns;	
+		moduladora <= '0';
+		wait for 200 ns;	
+		moduladora <= '1';
+		wait for 250 ns;	
+		moduladora <= '0';
+		wait for 100 ns;	
+		
       wait;
    end process;
 
