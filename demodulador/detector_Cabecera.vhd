@@ -41,21 +41,21 @@ end detector_Cabecera;
 -- que las ultimas 5 lecturas de la senal modulada coincidan con la cabecera definida
 
 architecture Behavioral of detector_Cabecera is
-constant cabecera : UNSIGNED (4 downto 0) := "01110"; -- Escribir aquí la cabecera de los bytes de datos
+constant cabecera : UNSIGNED (19 downto 0) := "0000" & "1111" & "1111" & "1111" & "0000"; -- Escribir aquí la cabecera de los bytes de datos
 begin
 	process (clk, reset)
-	variable bit_array : UNSIGNED (4 downto 0);
+	variable bit_array : UNSIGNED (19 downto 0);
 	begin
 		if reset = '0' then
 			cabecera_Detectada <= '0';
 		elsif clk'event and clk = '1' then
 			bit_array := shift_left (bit_array, 1);
 			if modulada = '1' then
-				bit_array := (bit_array or "00001");
+				bit_array(0) := '1';
 			else
-				bit_array := (bit_array and "11110");
+				bit_array(0) := '0';
 			end if;
-			if bit_array = "01110" then
+			if bit_array = cabecera then
 				cabecera_Detectada <= '1';
 			else 
 				cabecera_Detectada <= '0';

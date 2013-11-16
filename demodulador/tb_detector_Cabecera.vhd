@@ -93,7 +93,7 @@ BEGIN
 		for i in 0 to 100 loop
 			modulada <= bit_stream(0);
 			bit_stream := rotate_left (bit_stream, 1);
-			wait for clk_period;
+			wait for clk_period*4;
 		end loop;
 
       wait;
