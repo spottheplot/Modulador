@@ -66,9 +66,9 @@ process (clk, reset)
 			portadora := '0';
 			count := 0;
 		elsif clk'event and clk = '1' then
-			if cabecera_Detectada = '1' then
-				portadora := '1'; -- Sincronizamos portadora
-				count := 1;
+			if ((cabecera_Detectada = '1') AND (reading_Flag = '0')) then
+				portadora := '0'; -- Sincronizamos portadora
+				count := 0;
 				reading_Flag := '1';
 			end if;
 			if reading_Flag = '1' then
