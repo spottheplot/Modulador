@@ -44,7 +44,8 @@ ARCHITECTURE behavior OF tb_detector_Byte IS
          reset : IN  std_logic;
          modulada : IN  std_logic;
          cabecera_Detectada : IN  std_logic;
-         leds : OUT  std_logic_vector(7 downto 0)
+         leds : OUT  std_logic_vector(7 downto 0);
+			modo : out INTEGER range 3 downto 0
         );
     END COMPONENT;
     
@@ -57,6 +58,7 @@ ARCHITECTURE behavior OF tb_detector_Byte IS
 
  	--Outputs
    signal leds : std_logic_vector(7 downto 0);
+	signal modo : INTEGER range 2 downto 0;
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -84,7 +86,8 @@ BEGIN
           reset => reset,
           modulada => modulada,
           cabecera_Detectada => cabecera_Detectada,
-          leds => leds
+          leds => leds,
+			 modo => modo
         );
 
    -- Clock process definitions

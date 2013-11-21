@@ -39,6 +39,7 @@ end demodulador;
 
 architecture Behavioral of demodulador is
 signal cabecera_Detectada: STD_LOGIC;
+signal modo: INTEGER range 3 downto 0;
 begin
 
 detector_Cabecera: entity work.detector_Cabecera
@@ -55,7 +56,8 @@ detector_Byte: entity work.detector_Byte
 		reset => reset,
 		modulada => modulada,
 		cabecera_Detectada => cabecera_Detectada,
-		leds => leds
+		leds => leds,
+		modo => modo
 		);
 		
 end Behavioral;

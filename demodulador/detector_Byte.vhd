@@ -33,7 +33,8 @@ entity detector_Byte is
            reset : in  STD_LOGIC;
 			  modulada : in  STD_LOGIC;
            cabecera_Detectada : in  STD_LOGIC;
-           leds : out  STD_LOGIC_VECTOR (7 downto 0)
+           leds : out  STD_LOGIC_VECTOR (7 downto 0);
+			  modo : out INTEGER range 3 downto 0
            );
 end detector_Byte;
 
@@ -41,14 +42,22 @@ end detector_Byte;
 -- leido de la senal 'modulada'. Esto lo consigue construyendo la portadora
 -- utilizada en la moduladora que genera la senal 'modulada' y evaluando
 -- el numero de lecturas de 1 y 0 de esta.
+-- La senal modo tomara los siguientes valores segun el modulado del ultimo bit 0 de la senal recibida
+-- 	0: Desconocido
+-- 	1: ASK
+-- 	2: FSK
+-- 	3: PSK
 
 architecture Behavioral of detector_Byte is
 
 begin
 process (clk, reset)
 	variable modulada_nand : STD_LOGIC; -- Modulada NAND Portadora
+	variable modulada_nor : STD_LOGIC; -- Modulada NOR Portadora
 	variable ones_ctr_nand : INTEGER range 31 downto 0;
 	variable zeros_ctr_nand : INTEGER range 31 downto 0;
+	variable ones_ctr_nor : INTEGER range 31 downto 0;
+	variable zeros_ctr_nor : INTEGER range 31 downto 0;
 	variable bit_ctr : INTEGER range 8 downto 0; -- Lleva la cuenta de bits leidos
 	variable reading_Flag : STD_LOGIC;
 	variable bit_array : UNSIGNED (4 downto 0);
@@ -65,10 +74,13 @@ process (clk, reset)
 			leds <= (Others => '0');
 			ones_ctr_nand := 0;
 			zeros_ctr_nand := 0;
+			ones_ctr_nor := 0;
+			zeros_ctr_nor := 0;
 			bit_ctr := 0;
 			reading_Flag := '0';
 			portadora := '0';
 			count := 0;
+			modo <= 0;
 		elsif clk'event and clk = '1' then
 			if ((cabecera_Detectada = '1') AND (reading_Flag = '0')) then
 				portadora := '0'; -- Sincronizamos portadora
@@ -76,6 +88,7 @@ process (clk, reset)
 				reading_Flag := '1';
 			end if;
 			if reading_Flag = '1' then
+			-- Determinamos si el bit leido es 1 o 0
 				modulada_nand := modulada NAND portadora;
 				if modulada_nand = '1' then
 					ones_ctr_nand := ones_ctr_nand + 1;
@@ -84,7 +97,7 @@ process (clk, reset)
 				end if;
 				if ((ones_ctr_nand + zeros_ctr_nand) = n_lecturas_bit) then
 					-- Procesamos que tipo de bit hemos leido TODO
-					-- Bit 0 ASK 0% NAND - 50% NOR
+					-- Bit 1 50% NAND - 50% NOR
 					if ((6 < zeros_ctr_nand) and (zeros_ctr_nand < 10)) then
 						leds(bit_ctr) <= '1';
 					else 
@@ -97,6 +110,30 @@ process (clk, reset)
 						bit_ctr := 0;
 						reading_Flag := '0';
 					end if;
+				end if;
+			-- Determinamos el modo de modulacion (solo podemos diferenciar si se envia algun bit 0)
+				modulada_nor := modulada NOR portadora;
+				if modulada_nor = '1' then
+					ones_ctr_nor := ones_ctr_nor + 1;
+				else
+					zeros_ctr_nor := zeros_ctr_nor + 1;
+				end if;
+				if ((ones_ctr_nor + zeros_ctr_nor) = n_lecturas_bit) then
+					-- Procesamos que tipo de bit hemos leido
+					-- Bit 0 ASK 0% NAND - 50% NOR
+					if ((6 < zeros_ctr_nor) and (zeros_ctr_nor < 10)) then
+						modo <= 1;
+					-- Bit 0 FSK 25% NAND - 75% NOR
+					elsif ((10 < zeros_ctr_nor) and (zeros_ctr_nor < 14)) then
+						modo <= 2;
+					-- Bit 0 PSK 0% NAND - 100% NOR
+					elsif (14 < zeros_ctr_nor) then
+						modo <= 3;
+					else
+						modo <= 0;
+					end if;
+					ones_ctr_nor := 0;
+					zeros_ctr_nor := 0;
 				end if;
 			end if;	
 		end if;
