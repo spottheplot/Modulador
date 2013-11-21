@@ -39,30 +39,31 @@ end divisor_Frecuencia;
 -- para el funcionamiento del modulador
 
 architecture Behavioral of divisor_Frecuencia is
-signal count: integer range 0 to 3;
-signal count_2: integer range 0 to 7;
 
 begin
+
 process(clk, reset)
+	variable count: integer range 0 to 4;
+	variable count_2: integer range 0 to 8;
 begin	
 	if reset = '0' then
-		count <= 0;
-		count_2 <= 4;
+		count := 0;
+		count_2 := 4;
 		portadora <= '0';
 		portadora_2 <= '0';
 	elsif clk'event and clk = '1' then
-		count <= count + 1;
-		count_2 <= count_2 + 1;
-		if count = 3 then
+		count := count + 1;
+		count_2 := count_2 + 1;
+		if count = 4 then
 			portadora <= NOT portadora;
-			count <= 0;
+			count := 0;
 		end if;
-		if count_2 = 7 then
+		if count_2 = 8 then
 			portadora_2 <= NOT portadora_2;
-			count_2 <= 0;
+			count_2 := 0;
 		end if;
 	end if;
 end process;
-
+	
 end Behavioral;
 
