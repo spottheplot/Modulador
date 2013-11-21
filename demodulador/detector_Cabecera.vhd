@@ -1,6 +1,5 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: Juan Herrero Macias
 -- 
 -- Create Date:    08:40:27 11/16/2013 
 -- Design Name: 
@@ -37,11 +36,12 @@ entity detector_Cabecera is
            cabecera_Detectada : out  STD_LOGIC);
 end detector_Cabecera;
 
--- Esta arquitectura hara un set en la senal cabecera_Detectada siempre que
--- que las ultimas 5 lecturas de la senal modulada coincidan con la cabecera definida
+-- Esta arquitectura mandara un pulso en la senal cabecera_Detectada siempre que
+-- que las ultimas lecturas de la senal modulada coincidan con la cabecera definida
 
 architecture Behavioral of detector_Cabecera is
-constant cabecera : UNSIGNED (19 downto 0) := "0000" & "1111" & "1111" & "1111" & "0000"; -- Escribir aquí la cabecera de los bytes de datos
+-- Escribir aquí la cabecera de los bytes de datos
+constant cabecera : UNSIGNED (19 downto 0) := "0000" & "1111" & "1111" & "1111" & "0000"; 
 begin
 	process (clk, reset)
 	variable bit_array : UNSIGNED (19 downto 0);

@@ -1,10 +1,9 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Engineer: Juan Herrero Macias
 --
 -- Create Date:   11:02:29 11/18/2013
 -- Design Name:   
--- Module Name:   C:/Users/Juan/Documents/GitHub/modulador/demodulador/tb_detector_Byte.vhd
+-- Module Name:   tb_detector_Byte.vhd
 -- Project Name:  demodulador
 -- Target Device:  
 -- Tool versions:  

@@ -1,10 +1,9 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Engineer: Juan Herrero Macias
 --
 -- Create Date:   01:46:18 11/03/2013
 -- Design Name:   
--- Module Name:   C:/Users/Juan/Desktop/Jota/Jota/tb_modulador_FSK.vhd
+-- Module Name:   tb_modulador_FSK.vhd
 -- Project Name:  Jota
 -- Target Device:  
 -- Tool versions:  

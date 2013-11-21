@@ -1,6 +1,5 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: Juan Herrero Macias
 -- 
 -- Create Date:    16:04:39 10/17/2013 
 -- Design Name: 
@@ -35,6 +34,9 @@ entity divisor_Frecuencia is
            portadora : buffer  STD_LOGIC;
 			  portadora_2 : buffer STD_LOGIC);
 end divisor_Frecuencia;
+
+-- Esta arquitectura genera las senales portadoras necesarias
+-- para el funcionamiento del modulador
 
 architecture Behavioral of divisor_Frecuencia is
 signal count: integer range 0 to 3;

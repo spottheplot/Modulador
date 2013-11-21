@@ -1,10 +1,9 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Engineer: Juan Herrero Macias
 --
 -- Create Date:   00:50:26 11/03/2013
 -- Design Name:   
--- Module Name:   C:/Users/Juan/Desktop/Jota/Jota/tb_moduladora_ASK.vhd
+-- Module Name:   tb_moduladora_ASK.vhd
 -- Project Name:  Jota
 -- Target Device:  
 -- Tool versions:  

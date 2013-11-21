@@ -1,10 +1,9 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Engineer: Juan Herrero Macias
 --
 -- Create Date:   18:49:08 11/20/2013
 -- Design Name:   
--- Module Name:   C:/Users/Juan/Documents/GitHub/modulador/demodulador/tb_demodulador.vhd
+-- Module Name:   tb_demodulador.vhd
 -- Project Name:  demodulador
 -- Target Device:  
 -- Tool versions:  

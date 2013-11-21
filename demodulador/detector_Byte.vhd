@@ -1,6 +1,5 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: Juan Herrero Macias
 -- 
 -- Create Date:    10:51:35 11/16/2013 
 -- Design Name: 
@@ -37,6 +36,11 @@ entity detector_Byte is
            leds : out  STD_LOGIC_VECTOR (7 downto 0)
            );
 end detector_Byte;
+
+-- Esta arquitectura generara en la salida 'leds' el byte
+-- leido de la senal 'modulada'. Esto lo consigue construyendo la portadora
+-- utilizada en la moduladora que genera la senal 'modulada' y evaluando
+-- el numero de lecturas de 1 y 0 de esta.
 
 architecture Behavioral of detector_Byte is
 

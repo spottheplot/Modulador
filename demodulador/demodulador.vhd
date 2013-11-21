@@ -1,6 +1,5 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: Juan Herrero Macias
 -- 
 -- Create Date:    18:37:36 11/20/2013 
 -- Design Name: 
@@ -35,6 +34,8 @@ entity demodulador is
            reset : in  STD_LOGIC;
            leds : out  STD_LOGIC_VECTOR (7 downto 0));
 end demodulador;
+
+-- Esta arquitectura integra los modulos detector_Byte y detector_Cabecera
 
 architecture Behavioral of demodulador is
 signal cabecera_Detectada: STD_LOGIC;

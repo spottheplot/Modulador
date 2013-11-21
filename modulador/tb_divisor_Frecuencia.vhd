@@ -1,6 +1,5 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Engineer: Juan Herrero Macias
 --
 -- Create Date:   16:13:54 10/17/2013
 -- Design Name:   

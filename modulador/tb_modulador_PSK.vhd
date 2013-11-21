@@ -1,10 +1,9 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Engineer: Juan Herrero Macias
 --
 -- Create Date:   02:54:01 11/03/2013
 -- Design Name:   
--- Module Name:   C:/Users/Juan/Documents/GitHub/modulador/modulador/tb_modulador_PSK.vhd
+-- Module Name:   tb_modulador_PSK.vhd
 -- Project Name:  modulador
 -- Target Device:  
 -- Tool versions:  
