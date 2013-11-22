@@ -63,7 +63,7 @@ process (clk, reset)
 	variable bit_array : UNSIGNED (4 downto 0);
 	-- Variable para simular la reconstruccion de la portadora
 	variable portadora : STD_LOGIC := '0'; 
-	variable count : INTEGER range 0 to 4;
+	variable count : INTEGER range 4 downto 0;
 	-- n_lecturas_bit -> Numero de lecturas que podemos hacer por bit modulado
 	-- Dependera de la frecuencia de la senal modulada y la de lectura
 	constant n_lecturas_bit : INTEGER := 16; 													  
@@ -82,6 +82,13 @@ process (clk, reset)
 			count := 0;
 			modo <= 0;
 		elsif clk'event and clk = '1' then
+			-- Reconstruccion de portadora
+			count := count + 1;
+			if count = 2 then
+				portadora := NOT portadora;
+				count := 0;
+			end if;
+			-- Reconocimiento de bit
 			if ((cabecera_Detectada = '1') AND (reading_Flag = '0')) then
 				portadora := '0'; -- Sincronizamos portadora
 				count := 0;
@@ -136,17 +143,6 @@ process (clk, reset)
 					zeros_ctr_nor := 0;
 				end if;
 			end if;	
-		end if;
-	-- Reconstruccion de portadora
-		if reset = '0' then
-			count := 0;
-			portadora := '0';
-		elsif clk'event and clk = '1' then
-			count := count + 1;
-			if count = 2 then
-				portadora := NOT portadora;
-				count := 0;
-			end if;
 		end if;
 	end process;
 end Behavioral;
