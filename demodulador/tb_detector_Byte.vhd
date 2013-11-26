@@ -45,7 +45,7 @@ ARCHITECTURE behavior OF tb_detector_Byte IS
          modulada : IN  std_logic;
          cabecera_Detectada : IN  std_logic;
          leds : OUT  std_logic_vector(7 downto 0);
-			modo : out INTEGER range 3 downto 0
+			modo : OUT INTEGER range 3 downto 0
         );
     END COMPONENT;
     

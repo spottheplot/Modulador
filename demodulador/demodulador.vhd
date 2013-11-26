@@ -32,7 +32,9 @@ entity demodulador is
     Port ( modulada : in  STD_LOGIC;
            clk : in  STD_LOGIC;
            reset : in  STD_LOGIC;
-           leds : out  STD_LOGIC_VECTOR (7 downto 0));
+           leds : out  STD_LOGIC_VECTOR (7 downto 0);
+           segmentos : out STD_LOGIC_VECTOR (7 downto 0);
+           anodo : out STD_LOGIC_VECTOR (3 downto 0));
 end demodulador;
 
 -- Esta arquitectura integra los modulos detector_Byte y detector_Cabecera
@@ -57,6 +59,15 @@ detector_Byte: entity work.detector_Byte
 		modulada => modulada,
 		cabecera_Detectada => cabecera_Detectada,
 		leds => leds,
+		modo => modo
+		);
+		
+display_Modo: entity work.display_Modo
+	Port Map ( 
+		clk => clk,
+		reset => reset,
+		segmentos => segmentos,
+		anodo => anodo,
 		modo => modo
 		);
 		

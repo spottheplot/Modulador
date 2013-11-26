@@ -43,7 +43,9 @@ ARCHITECTURE behavior OF tb_demodulador IS
          modulada : IN  std_logic;
          clk : IN  std_logic;
          reset : IN  std_logic;
-         leds : OUT  std_logic_vector(7 downto 0)
+         leds : OUT  std_logic_vector(7 downto 0);
+         segmentos : out  STD_LOGIC_VECTOR (7 downto 0);
+         anodo : out  STD_LOGIC_VECTOR (3 downto 0)
         );
     END COMPONENT;
     

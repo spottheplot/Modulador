@@ -32,9 +32,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity display_Modo is
     Port ( clk : in  STD_LOGIC;
            reset : in  STD_LOGIC;
-           modo : in  STD_LOGIC_VECTOR (3 downto 0);
+           modo : in INTEGER range 3 downto 0;
            segmentos : out  STD_LOGIC_VECTOR (7 downto 0);
-           anodo : out  STD_LOGIC_VECTOR (4 downto 0));
+           anodo : out  STD_LOGIC_VECTOR (3 downto 0));
 end display_Modo;
 
 -- Inicialmente esta arquitectura mostrara en el primer display una letra
@@ -43,6 +43,7 @@ end display_Modo;
 -- 	1: ASK			--> A
 -- 	2: FSK			--> F
 -- 	3: PSK			--> P
+
 architecture Behavioral of display_Modo is
 
 begin
@@ -55,20 +56,15 @@ process (clk, reset)
 		if reset = '0' then
 			anodo <= (OTHERS => '1');
 			segmentos <= (OTHERS => '1');
-		end if;
-		if clk'event and clk = '1' then
+		elsif clk'event and clk = '1' then
 			anodo(0) <= '0';
-			if modo = 0 then
-				segmentos <= (OTHERS => '1');
+			if modo = 0	then
 				segmentos <= segmento_Nulo;
 			elsif modo = 1 then
-				segmentos <= (OTHERS => '1');
 				segmentos <= segmento_A;
 			elsif modo = 2 then
-			segmentos <= (OTHERS => '1');
 				segmentos<= segmento_F;
 			else
-				segmentos <= (OTHERS => '1');
 				segmentos<= segmento_P;
 			end if;
 		end if;
