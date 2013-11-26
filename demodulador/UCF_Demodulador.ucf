@@ -16,10 +16,10 @@ NET leds(7) LOC = K12;
 NET modulada LOC = D5;
 
 # Anodo de los displays
-NET  anodo(3) LOC = D14;
-NET  anodo(2) LOC = G14;
-NET  anodo(1) LOC = F14;
-NET  anodo(0) LOC = E13;
+NET  anodo(0) LOC = D14;
+NET  anodo(1) LOC = G14;
+NET  anodo(2) LOC = F14;
+NET  anodo(3) LOC = E13;
 
 
 # Segmento de los displaysNET  Display(5) LOC = E14;
