@@ -41,6 +41,7 @@ end demodulador;
 
 architecture Behavioral of demodulador is
 signal cabecera_Detectada: STD_LOGIC;
+signal modulada_Sincronizada: STD_LOGIC;
 signal modo: INTEGER range 3 downto 0;
 begin
 
@@ -48,7 +49,7 @@ detector_Cabecera: entity work.detector_Cabecera
 	Port Map ( 
 		clk => clk,
 		reset => reset,
-		modulada => modulada,
+		modulada => modulada_Sincronizada,
 		cabecera_Detectada => cabecera_Detectada
 		);
 		
@@ -56,7 +57,7 @@ detector_Byte: entity work.detector_Byte
 	Port Map ( 
 		clk => clk,
 		reset => reset,
-		modulada => modulada,
+		modulada => modulada_Sincronizada,
 		cabecera_Detectada => cabecera_Detectada,
 		leds => leds,
 		modo => modo
@@ -70,6 +71,15 @@ display_Modo: entity work.display_Modo
 		anodo => anodo,
 		modo => modo
 		);
+		
+sincronizador: entity work.sincronizador
+	Port Map (
+		clk => clk,
+		reset => reset,
+		modulada => modulada,
+		modulada_Sincronizada => modulada_Sincronizada
+		);
+
 		
 end Behavioral;
 

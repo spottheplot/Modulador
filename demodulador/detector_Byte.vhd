@@ -60,7 +60,6 @@ process (clk, reset)
 	variable zeros_ctr_nor : INTEGER range 31 downto 0;
 	variable bit_ctr : INTEGER range 8 downto 0; -- Lleva la cuenta de bits leidos
 	variable reading_Flag : STD_LOGIC;
-	variable bit_array : UNSIGNED (4 downto 0);
 	-- Variable para simular la reconstruccion de la portadora
 	variable portadora : STD_LOGIC := '0'; 
 	variable count : INTEGER range 4 downto 0;
