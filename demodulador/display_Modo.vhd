@@ -53,7 +53,7 @@ process (clk, reset)
 	constant segmento_F: STD_LOGIC_VECTOR (7 downto 0) := "01110001";
 	constant segmento_Nulo: STD_LOGIC_VECTOR (7 downto 0) := "11111101"; 
 	begin
-		if reset = '0' then
+		if reset = '1' then
 			anodo <= (OTHERS => '1');
 			segmentos <= (OTHERS => '1');
 		elsif clk'event and clk = '1' then

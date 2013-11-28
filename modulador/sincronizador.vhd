@@ -42,7 +42,7 @@ begin
 
 	process (clk, reset)
 	begin
-		if reset = '0' then
+		if reset = '1' then
 			q1 <= '0';
 			modulada_Sincronizada <= '0';
 		elsif clk'event and clk = '1' then

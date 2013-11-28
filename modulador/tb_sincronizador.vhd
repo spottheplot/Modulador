@@ -84,10 +84,10 @@ BEGIN
    stim_proc: process
 		variable bit_stream : UNSIGNED (9 downto 0) := "0110101110";
    begin		
-		reset <= '0';
       -- hold reset state for 100 ns.
-      wait for 100 ns;
 		reset <= '1';
+      wait for 100 ns;
+		reset <= '0';
 
       wait for clk_period*10;
 

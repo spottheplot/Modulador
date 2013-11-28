@@ -69,7 +69,7 @@ process (clk, reset)
 	begin
 	-- 
 	-- Lectura de modulada
-		if reset = '0' then
+		if reset = '1' then
 			leds <= (Others => '0');
 			ones_ctr_nand := 0;
 			zeros_ctr_nand := 0;

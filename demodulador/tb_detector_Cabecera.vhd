@@ -84,8 +84,9 @@ BEGIN
 	variable bit_stream : UNSIGNED (9 downto 0) := "0110101110";
    begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;	
 		reset <= '1';
+      wait for 100 ns;	
+		reset <= '0';
       wait for clk_period*10;
 
       -- insert stimulus here

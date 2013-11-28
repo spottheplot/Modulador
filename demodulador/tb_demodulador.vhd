@@ -118,8 +118,9 @@ BEGIN
 	constant cabecera	 : UNSIGNED (4 downto 0) := "01110";
    begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;	
 		reset <= '1';
+      wait for 100 ns;	
+		reset <= '0';
 
       wait for clk_period*10;
 

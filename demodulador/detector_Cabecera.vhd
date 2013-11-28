@@ -46,7 +46,7 @@ begin
 	process (clk, reset)
 	variable bit_array : UNSIGNED (19 downto 0);
 	begin
-		if reset = '0' then
+		if reset = '1' then
 			cabecera_Detectada <= '0';
 		elsif clk'event and clk = '1' then
 			bit_array := shift_left (bit_array, 1);

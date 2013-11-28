@@ -108,8 +108,9 @@ BEGIN
 	constant bit_1		 : UNSIGNED (3 downto 0) := "0101";
    begin		
       -- hold reset state for 100 ns.
-      wait for clk_period*10;
 		reset <= '1';
+      wait for clk_period*10;
+		reset <= '0';
       wait for clk_period*10;
 
       -- insert stimulus here 
