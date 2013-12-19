@@ -115,6 +115,7 @@ begin
 						envio_cabecera <= '0';
 						moduladora_real <= '0';
 						j <= 0;
+						flagEnvio = <= '0';
 						end if;
 					end if;
 					modulada <= modulada_sin_cabecera;
