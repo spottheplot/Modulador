@@ -1,0 +1,33 @@
+# Clock y reset
+NET clk LOC = T9;
+NET reset LOC =L14;
+
+# interruptores_moduladora
+NET interruptores_moduladora(0) LOC = F12;
+NET interruptores_moduladora(1) LOC = G12;
+NET interruptores_moduladora(2) LOC = H14;
+NET interruptores_moduladora(3) LOC = H13;
+NET interruptores_moduladora(4) LOC = J14;
+NET interruptores_moduladora(5) LOC = J13;
+NET interruptores_moduladora(6) LOC = K14;
+NET interruptores_moduladora(7) LOC = K13;
+
+# Senal enviada
+NET modulada LOC = D5;
+
+# Anodo de los displays
+NET  boton_envio LOC = L13;
+NET  boton_modo LOC = M14;
+
+
+
+## Segmento de los displays
+#NET  Display(5) LOC = E14;
+#NET  segmentos(0) LOC = E14;
+#NET  segmentos(1) LOC = G13;
+#NET  segmentos(2) LOC = N15;
+#NET  segmentos(3) LOC = P15;
+#NET  segmentos(4) LOC = R16;
+#NET  segmentos(5) LOC = F13;
+#NET  segmentos(6) LOC = N16;
+#NET  segmentos(7) LOC = P16;
