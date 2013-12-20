@@ -61,7 +61,7 @@ ARCHITECTURE behavior OF tb_detector_Byte IS
 	signal modo : INTEGER range 2 downto 0;
 
    -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 20 ns;
 	
 	
 	-- Procedimiento enviar bit
@@ -73,7 +73,7 @@ ARCHITECTURE behavior OF tb_detector_Byte IS
 		for i in 0 to 7 loop
 				modulada <= bit_copy(3);
 				bit_copy := rotate_left (bit_copy, 1);
-				wait for clk_period*2;
+				wait for clk_period*4;
 		end loop;
 	end procedure;
 

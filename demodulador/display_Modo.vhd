@@ -48,10 +48,10 @@ architecture Behavioral of display_Modo is
 
 begin
 process (clk, reset)
-	constant segmento_A: STD_LOGIC_VECTOR (7 downto 0) := "00010001"; 
-	constant segmento_P: STD_LOGIC_VECTOR (7 downto 0) := "00110001";
-	constant segmento_F: STD_LOGIC_VECTOR (7 downto 0) := "01110001";
-	constant segmento_Nulo: STD_LOGIC_VECTOR (7 downto 0) := "11111101"; 
+	constant segmento_A: STD_LOGIC_VECTOR (7 downto 0) := "10001000"; 
+	constant segmento_P: STD_LOGIC_VECTOR (7 downto 0) := "10001100";
+	constant segmento_F: STD_LOGIC_VECTOR (7 downto 0) := "10001110";
+	constant segmento_Nulo: STD_LOGIC_VECTOR (7 downto 0) := "10111111"; 
 	begin
 		if reset = '1' then
 			anodo <= (OTHERS => '1');

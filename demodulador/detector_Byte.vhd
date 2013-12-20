@@ -65,7 +65,7 @@ process (clk, reset)
 	variable count : INTEGER range 4 downto 0;
 	-- n_lecturas_bit -> Numero de lecturas que podemos hacer por bit modulado
 	-- Dependera de la frecuencia de la senal modulada y la de lectura
-	constant n_lecturas_bit : INTEGER := 16; 													  
+	constant n_lecturas_bit : INTEGER := 32; 													  
 	begin
 	-- 
 	-- Lectura de modulada
@@ -83,7 +83,7 @@ process (clk, reset)
 		elsif clk'event and clk = '1' then
 			-- Reconstruccion de portadora
 			count := count + 1;
-			if count = 2 then
+			if count = 4 then
 				portadora := NOT portadora;
 				count := 0;
 			end if;
@@ -104,7 +104,7 @@ process (clk, reset)
 				if ((ones_ctr_nand + zeros_ctr_nand) = n_lecturas_bit) then
 					-- Procesamos que tipo de bit hemos leido TODO
 					-- Bit 1 50% NAND - 50% NOR
-					if ((6 < zeros_ctr_nand) and (zeros_ctr_nand < 10)) then
+					if ((12 < zeros_ctr_nand) and (zeros_ctr_nand < 20)) then
 						leds(bit_ctr) <= '1';
 					else 
 						leds(bit_ctr) <= '0';
@@ -127,13 +127,13 @@ process (clk, reset)
 				if ((ones_ctr_nor + zeros_ctr_nor) = n_lecturas_bit) then
 					-- Procesamos que tipo de bit hemos leido
 					-- Bit 0 ASK 0% NAND - 50% NOR
-					if ((6 < zeros_ctr_nor) and (zeros_ctr_nor < 10)) then
+					if ((12 < zeros_ctr_nor) and (zeros_ctr_nor < 20)) then
 						modo <= 1;
 					-- Bit 0 FSK 25% NAND - 75% NOR
-					elsif ((10 < zeros_ctr_nor) and (zeros_ctr_nor < 14)) then
+					elsif ((20 < zeros_ctr_nor) and (zeros_ctr_nor < 28)) then
 						modo <= 2;
 					-- Bit 0 PSK 0% NAND - 100% NOR
-					elsif (14 < zeros_ctr_nor) then
+					elsif (28 < zeros_ctr_nor) then
 						modo <= 3;
 					else
 						modo <= 0;
