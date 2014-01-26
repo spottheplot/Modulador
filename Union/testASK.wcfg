@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Juan/Documents/GitHub/Modulador/Union/tb_union_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="tb_union" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/tb_union/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/interruptores_moduladora" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">interruptores_moduladora[7:0]</obj_property>
+      <obj_property name="ObjectShortName">interruptores_moduladora[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/boton_modo" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">boton_modo</obj_property>
+      <obj_property name="ObjectShortName">boton_modo</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/boton_envio" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">boton_envio</obj_property>
+      <obj_property name="ObjectShortName">boton_envio</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/leds" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds[7:0]</obj_property>
+      <obj_property name="ObjectShortName">leds[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/anodo" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anodo[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anodo[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/uut/modulada_intermedia" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">modulada_intermedia</obj_property>
+      <obj_property name="ObjectShortName">modulada_intermedia</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/uut/demodulador/modulada_sincronizada" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">modulada_sincronizada</obj_property>
+      <obj_property name="ObjectShortName">modulada_sincronizada</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/segmentos" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">segmentos[7:0]</obj_property>
+      <obj_property name="ObjectShortName">segmentos[7:0]</obj_property>
+      <obj_property name="label">segmentos[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_union/uut/demodulador/cabecera_detectada" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cabecera_detectada</obj_property>
+      <obj_property name="ObjectShortName">cabecera_detectada</obj_property>
+   </wvobject>
+</wave_config>
